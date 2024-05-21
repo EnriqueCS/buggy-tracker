@@ -21,7 +21,7 @@ const Home = () => {
 
   // takes the data from the mongoDB cluster
   // const fetchTodos = () => {
-  //   axios.get("http://localhost:5173/get")
+  //   axios.get("http://localhost:3001/get")
   //     .then((result) => {
   //       // puts the rows from top to bottom, so that the new ones are at the top
   //       setTodos(result.data.reverse());
@@ -29,9 +29,9 @@ const Home = () => {
   //     .catch((err) => console.log(err));
   // };
 
-// use "http://localhost:5173/get/ for mongo compass
+// use "http://localhost:3001/get/ for mongo compass
   const fetchTodos = () => {
-    axios.get("http://localhost:5173/get/")
+    axios.get("https://buggy-tracker-phi.vercel.app/api/get/")
       .then((result) => {
         // puts the rows from top to bottom, so that the new ones are at the top
         setTodos(result.data.reverse());
@@ -40,9 +40,9 @@ const Home = () => {
   };
 
 
-// use "http://localhost:5173/delete/ for mongo compass
+// use "http://localhost:3001/delete/ for mongo compass
   const handleDelete = (id) => {
-    axios.delete("http://localhost:5173/delete/" + id)
+    axios.delete("https://buggy-tracker-phi.vercel.app/api/delete/" + id)
       .then(() => {
         setTodos(todos.filter(todo => todo._id !== id));
       })
