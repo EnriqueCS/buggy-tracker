@@ -1,6 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const TodoModel = require("./Models/Todo.js");
+
+const TodoSchema = new mongoose.Schema({
+    date: String,
+    task: String,
+    color: String,
+    address: String
+})
+const TodoModel = mongoose.model("Todo", TodoSchema)
 
 const app = express();
 const PORT = 3001;
