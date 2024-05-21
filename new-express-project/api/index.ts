@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connection URI
-const mongoUri = 'mongodb+srv://enrique:FBT7Cg6xWQqplMpZ@cluster0.bxqq8tv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const mongoUri = 'mongodb+srv://matthewevwalker:Foutin1965@cluster0.q5ywvvo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 const client = new MongoClient(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 let todosCollection;
@@ -19,7 +19,7 @@ let todosCollection;
 client.connect()
   .then(() => {
     console.log('MongoDB connected');
-    const database = client.db('Cluster0'); // Make sure 'Cluster0' is your database name
+    const database = client.db('Clustaer0'); // Make sure 'Cluster0' is your database name
     todosCollection = database.collection('todos');
   })
   .catch(err => console.error('Error connecting to MongoDB:', err));
