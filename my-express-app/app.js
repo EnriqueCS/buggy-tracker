@@ -18,18 +18,13 @@ app.use(cors(
 app.get("/", (req, res) => {
     res.json("hello");
 })
-
-
 // use this one to get local host server
 // app.use(cors());
 
 
 // use this one to get local host server
 // mongoose.connect('mongodb://127.0.0.1:27017/todoDB');
-mongoose.connect('mongodb+srv://matthewevwalker:Foutin1965@cluster0.q5ywvvo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
-
-
-
+mongoose.connect('mongodb+srv://enrique:FBT7Cg6xWQqplMpZ@cluster0.bxqq8tv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
 app.get("/get", async (req, res) => {
     try {
