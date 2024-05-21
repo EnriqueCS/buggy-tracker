@@ -1,19 +1,17 @@
 const express = require("express");
-const cors = require("cors");
 const mongoose = require("mongoose");
 const TodoModel = require("./Models/Todo.js");
 
 const app = express();
 const PORT = 3001;
 
-app.use(express.json());
-app.use(cors(
-    {
-        origin: ["https://buggy-tracker-frontend.vercel.app"],
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        credentials: true
-    }
-));
+// CORS Middleware setup
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    next();
+  });
 
 app.get("/", (req, res) => {
     res.json("hello");
