@@ -5,6 +5,7 @@ const serverless = require('serverless-http');
 const app = express();
 const port = process.env.PORT || 3001; // Use the environment's port if available or default to 3001
 
+// Enrique Note: Change this to yours
 const allowedOrigins = ['https://buggy-tracker-rio6.vercel.app'];
 
 app.use((req, res, next) => {
@@ -20,6 +21,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 // MongoDB connection URI
+// Enrique Note: Change this to yours
 const mongoUri = 'mongodb+srv://enrique:FBT7Cg6xWQqplMpZ@cluster0.bxqq8tv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 const client = new MongoClient(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -28,11 +30,12 @@ let todosCollection;
 client.connect()
   .then(() => {
     console.log('MongoDB connected');
+    // Enrique Note: Change this to yours make a db and add the collection
     const database = client.db('test'); // Make sure 'Cluster0' is your database name
     todosCollection = database.collection('todos');
   })
   .catch(err => console.error('Error connecting to MongoDB:', err));
-
+  
 app.get("/api/get", async (req, res) => {
   try {
     const todos = await todosCollection.find({}).toArray();
